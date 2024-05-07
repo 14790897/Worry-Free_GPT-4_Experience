@@ -37,7 +37,11 @@ services:
     ports:
       - "6380:6379"
     command: redis-server /usr/local/etc/redis/redis.conf
-
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
 
   pandora-next:
     image: pengzhile/pandora-next
